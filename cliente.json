@@ -1,0 +1,1947 @@
+{
+ "$schema": "./docs/cliente.schema.json",
+ "id": "irish-town",
+ "nombre": "Irish Town",
+ "pais": "AR",
+ "idioma": "es",
+ "modo": "demo",
+ "whatsapp": "5491157514647",
+ "instagram": "irishtown.ar",
+ "prefijoPedido": "IT",
+ "demoVersion": 1,
+ "supabase": {
+  "url": "",
+  "anonKey": ""
+ },
+ "marca": {
+  "logo": "img/palabra.svg",
+  "logoPanel": "img/palabra-claro.svg",
+  "logoClaro": "img/palabra-claro.svg",
+  "isotipo": "img/isotipo.svg",
+  "colores": {
+   "fondo": "#F3EBDD",
+   "superficie": "#FBF6EC",
+   "texto": "#141414",
+   "primario": "#17603C",
+   "acento": "#E5782F",
+   "borde": "#D8CCB6"
+  },
+  "fuentes": {
+   "titulos": "'Playfair Display', Georgia, serif",
+   "texto": "'Barlow', system-ui, sans-serif",
+   "googleFonts": "",
+   "css": "css/fuentes.css"
+  },
+  "estilo": {
+   "forma": "recta",
+   "sombra": "dura",
+   "borde": "2px",
+   "mayusculas": false
+  }
+ },
+ "modulos": {
+  "carta": true,
+  "carrito": true,
+  "reservas": true,
+  "admin": true,
+  "cartaQR": true
+ },
+ "horarios": {
+  "lun": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ],
+  "mar": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ],
+  "mie": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ],
+  "jue": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ],
+  "vie": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ],
+  "sab": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ],
+  "dom": [
+   [
+    "12:00",
+    "00:00"
+   ]
+  ]
+ },
+ "reservas": {
+  "capacidad": 60,
+  "maxPersonas": 12,
+  "anticipacionMin": 60,
+  "diasAdelante": 30,
+  "cerrados": [],
+  "servicios": [
+   {
+    "id": "mediodia",
+    "nombre": "Mediodía",
+    "tandas": [
+     {
+      "nombre": "Mediodía",
+      "turnos": [
+       "12:00",
+       "12:30",
+       "13:00",
+       "13:30",
+       "14:00",
+       "14:30",
+       "15:00",
+       "15:30"
+      ],
+      "capacidad": 60
+     }
+    ]
+   },
+   {
+    "id": "tarde",
+    "nombre": "Tarde y happy hour",
+    "tandas": [
+     {
+      "nombre": "Tarde",
+      "turnos": [
+       "16:00",
+       "16:30",
+       "17:00",
+       "17:30",
+       "18:00",
+       "18:30",
+       "19:00",
+       "19:30"
+      ],
+      "capacidad": 60
+     }
+    ]
+   },
+   {
+    "id": "noche",
+    "nombre": "Noche",
+    "tandas": [
+     {
+      "nombre": "Primer tiempo",
+      "turnos": [
+       "20:00",
+       "20:30",
+       "21:00",
+       "21:30"
+      ],
+      "capacidad": 60
+     },
+     {
+      "nombre": "Segundo tiempo",
+      "turnos": [
+       "22:00",
+       "22:30",
+       "23:00"
+      ],
+      "capacidad": 60
+     }
+    ]
+   }
+  ],
+  "extras": [
+   {
+    "id": "cumple",
+    "label": "Venimos a festejar un cumple"
+   },
+   {
+    "id": "afuera",
+    "label": "Si se puede, afuera mirando la bahía"
+   }
+  ]
+ },
+ "eventosTipos": [
+  {
+   "id": "jam",
+   "nombre": "Jam session"
+  },
+  {
+   "id": "dj",
+   "nombre": "DJ"
+  },
+  {
+   "id": "piano",
+   "nombre": "Piano bar"
+  }
+ ],
+ "eventos": [
+  {
+   "id": "jam-2211",
+   "tipo": "jam",
+   "nombre": "Jam session y piano bar",
+   "fecha": "2026-11-22",
+   "hora": "21:00",
+   "cupo": 40,
+   "precio": null,
+   "descripcion": "Domingo pre-feriado: músicos invitados y la barra abierta hasta tarde.",
+   "reserva": true
+  }
+ ],
+ "pedidos": {
+  "salidas": [
+   "whatsapp"
+  ],
+  "tipos": [
+   "retiro"
+  ],
+  "minimo": 0,
+  "retiroHoy": {
+   "cadaMin": 15,
+   "prepMin": 25,
+   "asap": true
+  }
+ },
+ "pagos": {
+  "mercadopago": {
+   "endpoint": "https://kit-demos-amf.vercel.app/api/mp-preference",
+   "modo": "sandbox"
+  }
+ },
+ "cartaQR": {
+  "pedir": false,
+  "estilo": "marca",
+  "textos": {
+   "titulo": "La carta del Irish"
+  }
+ },
+ "carta": {
+  "categorias": [
+   {
+    "id": "entradas",
+    "nombre": "Entradas"
+   },
+   {
+    "id": "snacks",
+    "nombre": "Snacks"
+   },
+   {
+    "id": "papas",
+    "nombre": "Papas"
+   },
+   {
+    "id": "clasicos",
+    "nombre": "Clásicos"
+   },
+   {
+    "id": "carnes",
+    "nombre": "Carnes",
+    "bajada": "Cortes de Cabaña Juramento. Incluyen una guarnición a elección: ensalada mixta, papas fritas, batatas fritas, verduras salteadas, puré de papas, de calabaza, de batatas o arroz."
+   },
+   {
+    "id": "voladores",
+    "nombre": "Voladores"
+   },
+   {
+    "id": "cerdo",
+    "nombre": "Cerdo"
+   },
+   {
+    "id": "pescados",
+    "nombre": "Pescados"
+   },
+   {
+    "id": "milangas",
+    "nombre": "Milangas"
+   },
+   {
+    "id": "burgers",
+    "nombre": "Burgers y sándwiches"
+   },
+   {
+    "id": "pastas",
+    "nombre": "Pastas",
+    "bajada": "La salsa se elige aparte."
+   },
+   {
+    "id": "salsas",
+    "nombre": "Salsas"
+   },
+   {
+    "id": "ensaladas",
+    "nombre": "Ensaladas"
+   },
+   {
+    "id": "cervezas",
+    "nombre": "Pintas tiradas",
+    "bajada": "Pinta o media pinta."
+   },
+   {
+    "id": "porrones",
+    "nombre": "Porrones y latas"
+   },
+   {
+    "id": "tragos",
+    "nombre": "Tragos"
+   },
+   {
+    "id": "sin-alcohol",
+    "nombre": "Sin alcohol"
+   },
+   {
+    "id": "gin",
+    "nombre": "House of Gin Tonic",
+    "bajada": "Gin tonic con el gin que elijas. Tónica Britvic opcional $ 5.200."
+   },
+   {
+    "id": "whiskys",
+    "nombre": "Whiskys"
+   },
+   {
+    "id": "americanos",
+    "nombre": "Americanos"
+   },
+   {
+    "id": "vinos",
+    "nombre": "Vinos"
+   },
+   {
+    "id": "espumantes",
+    "nombre": "Espumantes"
+   }
+  ],
+  "productos": [
+   {
+    "id": "hongos-rellenos",
+    "categoria": "entradas",
+    "nombre": "Hongos rellenos",
+    "precio": 17000
+   },
+   {
+    "id": "milanesitas-de-mozzarella",
+    "categoria": "entradas",
+    "nombre": "Milanesitas de mozzarella",
+    "precio": 14700,
+    "descripcion": "3 unidades."
+   },
+   {
+    "id": "langostinos-a-la-dublinesa",
+    "categoria": "entradas",
+    "nombre": "Langostinos a la dublinesa",
+    "precio": 18600
+   },
+   {
+    "id": "rabas",
+    "categoria": "entradas",
+    "nombre": "Rabas",
+    "precio": 26700,
+    "foto": "img/carta/rabas.webp"
+   },
+   {
+    "id": "empanada-de-cordero",
+    "categoria": "entradas",
+    "nombre": "Empanada de cordero",
+    "precio": 5100
+   },
+   {
+    "id": "provo-clasica",
+    "categoria": "entradas",
+    "nombre": "Provo clásica",
+    "precio": 16700
+   },
+   {
+    "id": "provoleta-bourbon",
+    "categoria": "entradas",
+    "nombre": "Provoleta Bourbon",
+    "precio": 18900,
+    "descripcion": "Con queso azul, Jim Beam y verdeo."
+   },
+   {
+    "id": "the-rabas-and-the-papas",
+    "categoria": "entradas",
+    "nombre": "The rabas and the papas",
+    "precio": 22300
+   },
+   {
+    "id": "panera",
+    "categoria": "entradas",
+    "nombre": "Panera",
+    "precio": 2100
+   },
+   {
+    "id": "mix-vermuth",
+    "categoria": "snacks",
+    "nombre": "Mix vermuth",
+    "precio": 12300,
+    "descripcion": "Mix longaniza, gruyere y olivas."
+   },
+   {
+    "id": "chicken-fingers",
+    "categoria": "snacks",
+    "nombre": "Chicken fingers",
+    "precio": 11400
+   },
+   {
+    "id": "salchichas-ahumadas",
+    "categoria": "snacks",
+    "nombre": "Salchichas ahumadas",
+    "precio": 11900
+   },
+   {
+    "id": "aros-de-cebolla",
+    "categoria": "snacks",
+    "nombre": "Aros de cebolla",
+    "precio": 12100
+   },
+   {
+    "id": "a-secas-papas-fritas",
+    "categoria": "papas",
+    "nombre": "A secas papas fritas",
+    "precio": 9700
+   },
+   {
+    "id": "papas-con-cheddar-y-bacon",
+    "categoria": "papas",
+    "nombre": "Papas con cheddar y bacon",
+    "precio": 11200
+   },
+   {
+    "id": "irish-nacho-potatoes",
+    "categoria": "papas",
+    "nombre": "Irish nacho potatoes",
+    "precio": 14100,
+    "descripcion": "Papas acanaladas con pico de gallo, jalapeños y queso crema.",
+    "etiquetas": [
+     "picante"
+    ]
+   },
+   {
+    "id": "papas-hurlingham",
+    "categoria": "papas",
+    "nombre": "Papas Hurlingham",
+    "precio": 13800,
+    "descripcion": "Papas cuña crocantes con salsa secreta."
+   },
+   {
+    "id": "batatas",
+    "categoria": "papas",
+    "nombre": "Batatas",
+    "precio": 11400,
+    "descripcion": "Con reducción de aceto y miel."
+   },
+   {
+    "id": "goulash",
+    "categoria": "clasicos",
+    "nombre": "Goulash",
+    "precio": 24600,
+    "descripcion": "Con ñoquis baby.",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "shepherds-pie",
+    "categoria": "clasicos",
+    "nombre": "Shepherd's pie",
+    "precio": 24600,
+    "descripcion": "Pastel de cordero.",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "guiso-de-lentejas",
+    "categoria": "clasicos",
+    "nombre": "Guiso de lentejas",
+    "precio": 24600,
+    "descripcion": "El guiso tradicional, uno de los clásicos que no fallan.",
+    "etiquetas": [
+     "casa"
+    ],
+    "foto": "img/carta/lentejas.webp"
+   },
+   {
+    "id": "lomo-grillado-con-guarnicion",
+    "categoria": "carnes",
+    "nombre": "Lomo grillado con guarnición",
+    "precio": 37800,
+    "descripcion": "350 g."
+   },
+   {
+    "id": "lomo-del-bosque",
+    "categoria": "carnes",
+    "nombre": "Lomo del bosque",
+    "precio": 39900,
+    "descripcion": "350 g. Salsa de hongos y arroz salteado."
+   },
+   {
+    "id": "ojo-de-bife",
+    "categoria": "carnes",
+    "nombre": "Ojo de bife",
+    "precio": 39800,
+    "descripcion": "Con papa rellena, criolla y berenjenas en escabeche."
+   },
+   {
+    "id": "pollo-grille",
+    "categoria": "voladores",
+    "nombre": "Pollo grillé",
+    "precio": 18000
+   },
+   {
+    "id": "pechuga-rellena",
+    "categoria": "voladores",
+    "nombre": "Pechuga rellena",
+    "precio": 25900,
+    "descripcion": "Con portobellos y gruyere, envuelta en jamón serrano glaseado, salsa de malbec y frutos rojos."
+   },
+   {
+    "id": "pechuga-con-hongos",
+    "categoria": "voladores",
+    "nombre": "Pechuga con hongos",
+    "precio": 26900,
+    "descripcion": "Salsa de champignones, portobellos y hongos de pino, con milhojas de papa bien dorada."
+   },
+   {
+    "id": "wok-de-pollo-y-langostinos",
+    "categoria": "voladores",
+    "nombre": "Wok de pollo y langostinos",
+    "precio": 26700,
+    "descripcion": "Con vegetales salteados en salsa de ostras y arroz blanco."
+   },
+   {
+    "id": "bbq-ribs",
+    "categoria": "cerdo",
+    "nombre": "BBQ ribs",
+    "precio": 26800,
+    "descripcion": "Barbacoa, cole slaw y papas rejilla.",
+    "foto": "img/carta/ribs.webp"
+   },
+   {
+    "id": "bondiola",
+    "categoria": "cerdo",
+    "nombre": "Bondiola",
+    "precio": 24900,
+    "descripcion": "Laqueada en whisky y miel, con puré de batata con tomillo, limón y ajo."
+   },
+   {
+    "id": "bondiola-a-la-mostaza",
+    "categoria": "cerdo",
+    "nombre": "Bondiola a la mostaza",
+    "precio": 24900,
+    "descripcion": "Calabaza a la chapa y brócoli."
+   },
+   {
+    "id": "salmon-grillado",
+    "categoria": "pescados",
+    "nombre": "Salmón grillado",
+    "precio": 37000,
+    "descripcion": "Con selección de verduras salteadas."
+   },
+   {
+    "id": "salmon-crocante",
+    "categoria": "pescados",
+    "nombre": "Salmón crocante",
+    "precio": 33200,
+    "descripcion": "Apanado en semillas de sésamo con puré de limas y salsa teriyaki.",
+    "foto": "img/carta/salmon.webp"
+   },
+   {
+    "id": "pesca-del-dia-alfredo",
+    "categoria": "pescados",
+    "nombre": "Pesca del día Alfredo",
+    "precio": 27100,
+    "descripcion": "Con alcaparras, chardonnay, ajo, zanahorias glaseadas en balsámico y brócoli."
+   },
+   {
+    "id": "fish-and-chips-clasico",
+    "categoria": "pescados",
+    "nombre": "Fish and chips clásico",
+    "precio": 23000,
+    "descripcion": "Merluza rebozada frita con papas crocantes.",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "arroz-cremoso",
+    "categoria": "pescados",
+    "nombre": "Arroz cremoso",
+    "precio": 26800,
+    "descripcion": "Con champis y langostinos salteados."
+   },
+   {
+    "id": "milanesa-de-lomo",
+    "categoria": "milangas",
+    "nombre": "Milanesa de lomo",
+    "precio": 27100
+   },
+   {
+    "id": "suprema-de-pollo",
+    "categoria": "milangas",
+    "nombre": "Suprema de pollo",
+    "precio": 23200
+   },
+   {
+    "id": "suprema-matias",
+    "categoria": "milangas",
+    "nombre": "Suprema Matías",
+    "precio": 24800,
+    "descripcion": "Mozzarella, panceta y morrón."
+   },
+   {
+    "id": "topping-cheddar-y-bacon",
+    "categoria": "milangas",
+    "nombre": "Topping cheddar y bacon",
+    "precio": 6800,
+    "descripcion": "Para personalizar tu milanga."
+   },
+   {
+    "id": "topping-mozzarella-y-queso-azul",
+    "categoria": "milangas",
+    "nombre": "Topping mozzarella y queso azul",
+    "precio": 6800,
+    "descripcion": "Para personalizar tu milanga."
+   },
+   {
+    "id": "topping-jamon-mozzarella-y-salsa-de-tomate",
+    "categoria": "milangas",
+    "nombre": "Topping jamón, mozzarella y salsa de tomate",
+    "precio": 6800,
+    "descripcion": "Para personalizar tu milanga."
+   },
+   {
+    "id": "muerte-en-dublin",
+    "categoria": "burgers",
+    "nombre": "Muerte en Dublín",
+    "precio": 23000,
+    "descripcion": "Doble carne de res, doble panceta, doble cheddar, huevo frito y papas fritas.",
+    "etiquetas": [
+     "casa"
+    ],
+    "foto": "img/carta/muerte.webp"
+   },
+   {
+    "id": "classic-burger",
+    "categoria": "burgers",
+    "nombre": "Classic burger",
+    "precio": 18600,
+    "descripcion": "Hamburguesa de res, tomate, lechuga y papas fritas.",
+    "foto": "img/carta/classic.webp"
+   },
+   {
+    "id": "lamb-burger",
+    "categoria": "burgers",
+    "nombre": "Lamb burger",
+    "precio": 19700,
+    "descripcion": "Hamburguesa de cordero, tomate, lechuga, jamón, queso, huevo frito y batatas fritas."
+   },
+   {
+    "id": "muerte-en-paris",
+    "categoria": "burgers",
+    "nombre": "Muerte en París",
+    "precio": 23000,
+    "descripcion": "Hamburguesa rellena con queso azul, doble panceta, huevo, cheddar y papas fritas."
+   },
+   {
+    "id": "veggie-burger",
+    "categoria": "burgers",
+    "nombre": "Veggie burger",
+    "precio": 19100,
+    "descripcion": "Hamburguesa vegana, lechuga, tomate, cebolla y papas fritas.",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "del-bosque",
+    "categoria": "burgers",
+    "nombre": "Del bosque",
+    "precio": 19900,
+    "descripcion": "Hamburguesa de res, tomate, lechuga, cheddar, salsa del bosque, champignones, cebolla y papas fritas."
+   },
+   {
+    "id": "crispy-chicken",
+    "categoria": "burgers",
+    "nombre": "Crispy chicken",
+    "precio": 22000,
+    "descripcion": "Pollo rebozado crocante, lechuga, tomate, cebolla caramelizada, mayonesa ahumada y papas fritas."
+   },
+   {
+    "id": "raglan-road",
+    "categoria": "burgers",
+    "nombre": "Raglan Road",
+    "precio": 23100,
+    "descripcion": "Lomo o pollo, queso, tomate, lechuga, jamón, huevo frito y papas fritas."
+   },
+   {
+    "id": "irish-club-sandwich",
+    "categoria": "burgers",
+    "nombre": "Irish club sandwich",
+    "precio": 22100,
+    "descripcion": "Jamón, cheddar, pollo, salsa golf, pepino agridulce, coleslaw y papas fritas.",
+    "foto": "img/carta/club.webp"
+   },
+   {
+    "id": "pio-pio",
+    "categoria": "burgers",
+    "nombre": "Pío-pío",
+    "precio": 23000,
+    "descripcion": "Pechuga grillada, provoleta, morrones asados, rúcula y mayonesa de pesto en pan de campo."
+   },
+   {
+    "id": "milanga-nordelta",
+    "categoria": "burgers",
+    "nombre": "Milanga Nordelta",
+    "precio": 21000,
+    "descripcion": "Milanesa de carré crocante, pan de brioche, pepinos encurtidos, tomate, lechuga, salsa caesar y papas rejilla."
+   },
+   {
+    "id": "caesar-chicken-sandwich",
+    "categoria": "burgers",
+    "nombre": "Caesar chicken sandwich",
+    "precio": 21300,
+    "descripcion": "Pollo crocante con ensalada caesar."
+   },
+   {
+    "id": "sorrentinos-de-jamon-y-queso",
+    "categoria": "pastas",
+    "nombre": "Sorrentinos de jamón y queso",
+    "precio": 18700,
+    "foto": "img/carta/sorrentinos.webp"
+   },
+   {
+    "id": "sorrentinos-de-calabaza-y-almendras",
+    "categoria": "pastas",
+    "nombre": "Sorrentinos de calabaza y almendras",
+    "precio": 18700
+   },
+   {
+    "id": "gnocchi",
+    "categoria": "pastas",
+    "nombre": "Gnocchi",
+    "precio": 17400,
+    "descripcion": "De papa o espinaca."
+   },
+   {
+    "id": "canelones",
+    "categoria": "pastas",
+    "nombre": "Canelones",
+    "precio": 17900,
+    "descripcion": "De pollo y puerro."
+   },
+   {
+    "id": "spaghetti",
+    "categoria": "pastas",
+    "nombre": "Spaghetti",
+    "precio": 16700
+   },
+   {
+    "id": "crispy-chicken-mac-and-cheese",
+    "categoria": "pastas",
+    "nombre": "Crispy chicken mac and cheese",
+    "precio": 24700,
+    "descripcion": "Macarrones con salsa de quesos y pollo crocante."
+   },
+   {
+    "id": "spaghetti-japo",
+    "categoria": "pastas",
+    "nombre": "Spaghetti japo",
+    "precio": 24300,
+    "descripcion": "Wok de spaghetti con verduras, semillas de sésamo y salsa de soja."
+   },
+   {
+    "id": "fileto-o-mixta",
+    "categoria": "salsas",
+    "nombre": "Fileto o mixta",
+    "precio": 6100
+   },
+   {
+    "id": "tomate-fresco-albahaca-y-aceituna",
+    "categoria": "salsas",
+    "nombre": "Tomate fresco, albahaca y aceituna",
+    "precio": 6100
+   },
+   {
+    "id": "crema",
+    "categoria": "salsas",
+    "nombre": "Crema",
+    "precio": 6100
+   },
+   {
+    "id": "bolognesa",
+    "categoria": "salsas",
+    "nombre": "Bolognesa",
+    "precio": 6100
+   },
+   {
+    "id": "4-quesos",
+    "categoria": "salsas",
+    "nombre": "4 quesos",
+    "precio": 6100
+   },
+   {
+    "id": "pesto",
+    "categoria": "salsas",
+    "nombre": "Pesto",
+    "precio": 6100
+   },
+   {
+    "id": "crema-de-brocoli",
+    "categoria": "salsas",
+    "nombre": "Crema de brócoli",
+    "precio": 6100
+   },
+   {
+    "id": "salsa-hongos",
+    "categoria": "salsas",
+    "nombre": "Hongos",
+    "precio": 7800
+   },
+   {
+    "id": "caesar-de-pollo",
+    "categoria": "ensaladas",
+    "nombre": "Caesar de pollo",
+    "precio": 19700,
+    "descripcion": "Hojas verdes, crostines de pan, aderezo Caesar y Reggianito rallado."
+   },
+   {
+    "id": "caesar-crispy-chicken",
+    "categoria": "ensaladas",
+    "nombre": "Caesar crispy chicken",
+    "precio": 21800,
+    "descripcion": "Hojas verdes, crostines de pan, aderezo Caesar, Reggianito y pollo crocante."
+   },
+   {
+    "id": "armala-vos",
+    "categoria": "ensaladas",
+    "nombre": "Armala vos",
+    "precio": 17800,
+    "descripcion": "Hasta 5 ingredientes: lechuga, rúcula, tomate, huevo, arroz, manzana, zanahoria, pollo, queso rallado, cebolla."
+   },
+   {
+    "id": "morrison",
+    "categoria": "ensaladas",
+    "nombre": "Morrison",
+    "precio": 23000,
+    "descripcion": "Salmón desmechado, tomates asados, mix de verdes, palta, crotones y aderezo de mostaza antigua, miel y limón."
+   },
+   {
+    "id": "poke-bowl",
+    "categoria": "ensaladas",
+    "nombre": "Poke bowl",
+    "precio": 24700,
+    "descripcion": "Salmón grillado, arroz blanco largo, rúcula, palta, batata crocante, semillas de sésamo, maracuyá, lima, salsa teriyaki y queso Phila."
+   },
+   {
+    "id": "fafa",
+    "categoria": "ensaladas",
+    "nombre": "Fafa",
+    "precio": 23100,
+    "descripcion": "Toques de garbanzo de Casa Vegana, hojas verdes, cebolla morada, tomate, menta, olivas negras y palta. Aderezo de alioli y limón.",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "bubba",
+    "categoria": "ensaladas",
+    "nombre": "Bubba",
+    "precio": 24600,
+    "descripcion": "Espinaca fresca, lechuga, tomates cherry salteados, palta y langostinos con aderezo de oliva, limón, maní y pimentón ahumado."
+   },
+   {
+    "id": "pollo-stereo",
+    "categoria": "ensaladas",
+    "nombre": "Pollo Stereo",
+    "precio": 25100,
+    "descripcion": "Mix verde, pollo al grill, maíz frito, cherrys, queso azul, mostaza, miel y lima."
+   },
+   {
+    "id": "pinta-warsteiner",
+    "categoria": "cervezas",
+    "nombre": "Warsteiner",
+    "precio": null,
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 8300
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 5300
+     }
+    ],
+    "foto": "img/carta/warsteiner.webp"
+   },
+   {
+    "id": "pinta-imperial",
+    "categoria": "cervezas",
+    "nombre": "Imperial",
+    "precio": null,
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 7900
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 5400
+     }
+    ]
+   },
+   {
+    "id": "pinta-heineken",
+    "categoria": "cervezas",
+    "nombre": "Heineken",
+    "precio": null,
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 8900
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 5600
+     }
+    ]
+   },
+   {
+    "id": "pinta-blue-moon",
+    "categoria": "cervezas",
+    "nombre": "Blue Moon",
+    "precio": null,
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 9500
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 6000
+     }
+    ]
+   },
+   {
+    "id": "pinta-grolsch",
+    "categoria": "cervezas",
+    "nombre": "Grolsch",
+    "precio": null,
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 8800
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 5400
+     }
+    ]
+   },
+   {
+    "id": "pinta-gambrinus",
+    "categoria": "cervezas",
+    "nombre": "Gambrinus",
+    "precio": null,
+    "descripcion": "Amber o Stout.",
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 9900
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 6900
+     }
+    ],
+    "opciones": [
+     {
+      "id": "estilo",
+      "nombre": "Estilo",
+      "valores": [
+       {
+        "id": "amber",
+        "nombre": "Amber"
+       },
+       {
+        "id": "stout",
+        "nombre": "Stout"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pinta-equum",
+    "categoria": "cervezas",
+    "nombre": "Equum",
+    "precio": null,
+    "descripcion": "IPA o Scottish.",
+    "variantes": [
+     {
+      "id": "pinta",
+      "nombre": "Pinta",
+      "precio": 9900
+     },
+     {
+      "id": "media",
+      "nombre": "Media pinta",
+      "precio": 7200
+     }
+    ],
+    "opciones": [
+     {
+      "id": "estilo",
+      "nombre": "Estilo",
+      "valores": [
+       {
+        "id": "ipa",
+        "nombre": "IPA"
+       },
+       {
+        "id": "scottish",
+        "nombre": "Scottish"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "porron-heineken",
+    "categoria": "porrones",
+    "nombre": "Porrón Heineken",
+    "precio": 7600
+   },
+   {
+    "id": "porron-sol",
+    "categoria": "porrones",
+    "nombre": "Porrón Sol",
+    "precio": 8200
+   },
+   {
+    "id": "porron-corona",
+    "categoria": "porrones",
+    "nombre": "Porrón Corona",
+    "precio": 8100
+   },
+   {
+    "id": "lata-imperial",
+    "categoria": "porrones",
+    "nombre": "Lata Imperial",
+    "precio": 8600,
+    "descripcion": "Lager, Amber o Stout."
+   },
+   {
+    "id": "daiquiri-frozen",
+    "categoria": "tragos",
+    "nombre": "Daiquiri frozen",
+    "precio": 12300,
+    "descripcion": "Frutilla, maracuyá, durazno o ananá."
+   },
+   {
+    "id": "caipis",
+    "categoria": "tragos",
+    "nombre": "Caipis",
+    "precio": 11700,
+    "descripcion": "Clásica, maracuyá, piña o frutos rojos. De vodka o cachaça."
+   },
+   {
+    "id": "campari-orange",
+    "categoria": "tragos",
+    "nombre": "Campari orange",
+    "precio": 10900,
+    "descripcion": "Campari y jugo de naranja."
+   },
+   {
+    "id": "cuba-libre",
+    "categoria": "tragos",
+    "nombre": "Cuba libre",
+    "precio": 9900,
+    "descripcion": "Ron Havana Añejo, Coca-Cola y limón."
+   },
+   {
+    "id": "fernet-branca-con-cola",
+    "categoria": "tragos",
+    "nombre": "Fernet Branca con cola",
+    "precio": 10300
+   },
+   {
+    "id": "sex-on-the-beach",
+    "categoria": "tragos",
+    "nombre": "Sex on the beach",
+    "precio": 9200,
+    "descripcion": "Vodka Absolut, licor de durazno, jugo de naranja y granadina."
+   },
+   {
+    "id": "margarita-frozen",
+    "categoria": "tragos",
+    "nombre": "Margarita frozen",
+    "precio": 12700,
+    "descripcion": "Tequila, Cointreau, limón y azúcar."
+   },
+   {
+    "id": "oreo-shake",
+    "categoria": "tragos",
+    "nombre": "Oreo shake",
+    "precio": 13100,
+    "descripcion": "Helado de vainilla, Baileys, galletitas Oreo y licor de chocolate blanco."
+   },
+   {
+    "id": "happy-shake",
+    "categoria": "tragos",
+    "nombre": "Happy shake",
+    "precio": 13400,
+    "descripcion": "Baileys, amaretto, whisky y helado de chocolate."
+   },
+   {
+    "id": "penicillin",
+    "categoria": "tragos",
+    "nombre": "Penicillin",
+    "precio": 10200,
+    "descripcion": "Whisky escocés, jugo de limón, miel y jengibre."
+   },
+   {
+    "id": "ramazzotti-sparkling",
+    "categoria": "tragos",
+    "nombre": "Ramazzotti sparkling",
+    "precio": 10100,
+    "descripcion": "Ramazzotti, jugo de limón y espumante."
+   },
+   {
+    "id": "aperol-spritz",
+    "categoria": "tragos",
+    "nombre": "Aperol spritz",
+    "precio": 10100,
+    "descripcion": "Aperol, espumante, rodaja de naranja y golpe de soda."
+   },
+   {
+    "id": "old-fashioned",
+    "categoria": "tragos",
+    "nombre": "Old fashioned",
+    "precio": 15700,
+    "descripcion": "Bourbon, Angostura, azúcar y twist de naranja."
+   },
+   {
+    "id": "manhattan",
+    "categoria": "tragos",
+    "nombre": "Manhattan",
+    "precio": 15300,
+    "descripcion": "Bourbon, Carpano Rosso, cereza marrasquino y Angostura."
+   },
+   {
+    "id": "negroni",
+    "categoria": "tragos",
+    "nombre": "Negroni",
+    "precio": 10100,
+    "descripcion": "Beefeater, Campari, Carpano Rosso y rodaja de naranja."
+   },
+   {
+    "id": "jameson-lemon-lime",
+    "categoria": "tragos",
+    "nombre": "Jameson lemon-lime",
+    "precio": 9900,
+    "descripcion": "Whisky Jameson, Sprite, lima y Angostura."
+   },
+   {
+    "id": "mojito",
+    "categoria": "tragos",
+    "nombre": "Mojito",
+    "precio": 9800,
+    "descripcion": "Ron Havana blanco, limón, azúcar, menta y soda."
+   },
+   {
+    "id": "ferrero-rocher-cocktail",
+    "categoria": "tragos",
+    "nombre": "Ferrero Rocher cocktail",
+    "precio": 13900,
+    "descripcion": "Baileys granizado, Frangelico y Ferrero Rocher."
+   },
+   {
+    "id": "bloody-mary",
+    "categoria": "tragos",
+    "nombre": "Bloody Mary",
+    "precio": 15700,
+    "descripcion": "Jugo de tomate Britvic, vodka Absolut, tabasco y salsa inglesa."
+   },
+   {
+    "id": "long-penicillin",
+    "categoria": "tragos",
+    "nombre": "Long penicillin",
+    "precio": 12100,
+    "descripcion": "Whisky escocés, almíbar de limón y miel, Britvic Ginger Ale."
+   },
+   {
+    "id": "boulevardier",
+    "categoria": "tragos",
+    "nombre": "Boulevardier",
+    "precio": 14900,
+    "descripcion": "Bourbon, Campari y vermouth rosso."
+   },
+   {
+    "id": "tinto-de-verano",
+    "categoria": "tragos",
+    "nombre": "Tinto de verano",
+    "precio": 8200,
+    "descripcion": "Malbec, gaseosa de limón y hojas de menta."
+   },
+   {
+    "id": "blanco-de-verano",
+    "categoria": "tragos",
+    "nombre": "Blanco de verano",
+    "precio": 8700,
+    "descripcion": "Chardonnay espumante, almíbar especiado y hojas de menta."
+   },
+   {
+    "id": "agua",
+    "categoria": "sin-alcohol",
+    "nombre": "Agua",
+    "precio": 4500
+   },
+   {
+    "id": "aguas-saborizadas",
+    "categoria": "sin-alcohol",
+    "nombre": "Aguas saborizadas",
+    "precio": 4500,
+    "descripcion": "Naranja, manzana o pomelo."
+   },
+   {
+    "id": "gaseosas",
+    "categoria": "sin-alcohol",
+    "nombre": "Gaseosas",
+    "precio": 4500,
+    "descripcion": "Línea Coca-Cola."
+   },
+   {
+    "id": "limonada-clasica",
+    "categoria": "sin-alcohol",
+    "nombre": "Limonada clásica",
+    "precio": 6700
+   },
+   {
+    "id": "limonada-con-maracuya",
+    "categoria": "sin-alcohol",
+    "nombre": "Limonada con maracuyá",
+    "precio": 8100
+   },
+   {
+    "id": "limonada-con-menta-y-jengibre",
+    "categoria": "sin-alcohol",
+    "nombre": "Limonada con menta y jengibre",
+    "precio": 8100
+   },
+   {
+    "id": "limonada-con-frutos-rojos",
+    "categoria": "sin-alcohol",
+    "nombre": "Limonada con frutos rojos",
+    "precio": 8100
+   },
+   {
+    "id": "limonada-pink",
+    "categoria": "sin-alcohol",
+    "nombre": "Limonada pink",
+    "precio": 8100
+   },
+   {
+    "id": "licuados",
+    "categoria": "sin-alcohol",
+    "nombre": "Licuados",
+    "precio": 8600,
+    "descripcion": "Con agua, leche o jugo. Hasta 3 gustos."
+   },
+   {
+    "id": "aconcagua",
+    "categoria": "gin",
+    "nombre": "Aconcagua",
+    "precio": 10100
+   },
+   {
+    "id": "aconcagua-lima",
+    "categoria": "gin",
+    "nombre": "Aconcagua Lima",
+    "precio": 10100
+   },
+   {
+    "id": "aconcagua-coriandro",
+    "categoria": "gin",
+    "nombre": "Aconcagua Coriandro",
+    "precio": 10100
+   },
+   {
+    "id": "amazonia",
+    "categoria": "gin",
+    "nombre": "Amazonia",
+    "precio": 9200
+   },
+   {
+    "id": "apostoles-rosa-mosqueta",
+    "categoria": "gin",
+    "nombre": "Apóstoles Rosa Mosqueta",
+    "precio": 9900
+   },
+   {
+    "id": "apostoles-mate",
+    "categoria": "gin",
+    "nombre": "Apóstoles Mate",
+    "precio": 9900
+   },
+   {
+    "id": "apostoles-el-profeta",
+    "categoria": "gin",
+    "nombre": "Apóstoles El Profeta",
+    "precio": 9900
+   },
+   {
+    "id": "baigur-saigon",
+    "categoria": "gin",
+    "nombre": "Baigur Saigon",
+    "precio": 41000
+   },
+   {
+    "id": "beefeater",
+    "categoria": "gin",
+    "nombre": "Beefeater",
+    "precio": 10600
+   },
+   {
+    "id": "bombay-sapphire",
+    "categoria": "gin",
+    "nombre": "Bombay Sapphire",
+    "precio": 12700
+   },
+   {
+    "id": "bombay-bramble",
+    "categoria": "gin",
+    "nombre": "Bombay Bramble",
+    "precio": 16100
+   },
+   {
+    "id": "bombay-star",
+    "categoria": "gin",
+    "nombre": "Bombay Star",
+    "precio": 31000
+   },
+   {
+    "id": "gt-bosque-nativo",
+    "categoria": "gin",
+    "nombre": "Bosque Nativo",
+    "precio": 10800,
+    "foto": "img/carta/gintonic.webp"
+   },
+   {
+    "id": "bosque-alta-montana",
+    "categoria": "gin",
+    "nombre": "Bosque Alta Montaña",
+    "precio": 11900
+   },
+   {
+    "id": "buenos-aires-london-dry",
+    "categoria": "gin",
+    "nombre": "Buenos Aires London Dry",
+    "precio": 9200
+   },
+   {
+    "id": "buenos-aires-13-botanicos",
+    "categoria": "gin",
+    "nombre": "Buenos Aires 13 Botánicos",
+    "precio": 9700
+   },
+   {
+    "id": "bulldog",
+    "categoria": "gin",
+    "nombre": "Bulldog",
+    "precio": 16750
+   },
+   {
+    "id": "gunpowder",
+    "categoria": "gin",
+    "nombre": "Gunpowder",
+    "precio": 46000
+   },
+   {
+    "id": "hendrick-s-classic",
+    "categoria": "gin",
+    "nombre": "Hendrick's Classic",
+    "precio": 18900
+   },
+   {
+    "id": "hendrick-s-neptunia",
+    "categoria": "gin",
+    "nombre": "Hendrick's Neptunia",
+    "precio": 26850
+   },
+   {
+    "id": "hendrick-s-lunar",
+    "categoria": "gin",
+    "nombre": "Hendrick's Lunar",
+    "precio": 27000
+   },
+   {
+    "id": "hendrick-s-amazonia",
+    "categoria": "gin",
+    "nombre": "Hendrick's Amazonia",
+    "precio": 28100
+   },
+   {
+    "id": "hendrick-s-grand-cabaret",
+    "categoria": "gin",
+    "nombre": "Hendrick's Grand Cabaret",
+    "precio": 28100
+   },
+   {
+    "id": "knut-hansen",
+    "categoria": "gin",
+    "nombre": "Knut Hansen",
+    "precio": 21350
+   },
+   {
+    "id": "le-tribute",
+    "categoria": "gin",
+    "nombre": "Le Tribute",
+    "precio": 26600
+   },
+   {
+    "id": "malaria-original",
+    "categoria": "gin",
+    "nombre": "Malaria Original",
+    "precio": 12800
+   },
+   {
+    "id": "malaria-black",
+    "categoria": "gin",
+    "nombre": "Malaria Black",
+    "precio": 14100
+   },
+   {
+    "id": "mare",
+    "categoria": "gin",
+    "nombre": "Mare",
+    "precio": 26900
+   },
+   {
+    "id": "martin-miller-s",
+    "categoria": "gin",
+    "nombre": "Martin Miller's",
+    "precio": 26000
+   },
+   {
+    "id": "mg",
+    "categoria": "gin",
+    "nombre": "MG",
+    "precio": 13600
+   },
+   {
+    "id": "monkey-47",
+    "categoria": "gin",
+    "nombre": "Monkey 47",
+    "precio": 29200
+   },
+   {
+    "id": "restinga-london-dry",
+    "categoria": "gin",
+    "nombre": "Restinga London Dry",
+    "precio": 9500
+   },
+   {
+    "id": "restinga-flavored",
+    "categoria": "gin",
+    "nombre": "Restinga Flavored",
+    "precio": 9900
+   },
+   {
+    "id": "roku",
+    "categoria": "gin",
+    "nombre": "Roku",
+    "precio": 42150
+   },
+   {
+    "id": "tanqueray-original",
+    "categoria": "gin",
+    "nombre": "Tanqueray Original",
+    "precio": 11800
+   },
+   {
+    "id": "tanqueray-royale",
+    "categoria": "gin",
+    "nombre": "Tanqueray Royale",
+    "precio": 19000
+   },
+   {
+    "id": "tanqueray-rangpur-lime",
+    "categoria": "gin",
+    "nombre": "Tanqueray Rangpur Lime",
+    "precio": 23000
+   },
+   {
+    "id": "tanqueray-no-ten",
+    "categoria": "gin",
+    "nombre": "Tanqueray Nº Ten",
+    "precio": 45300
+   },
+   {
+    "id": "tanqueray-sevilla",
+    "categoria": "gin",
+    "nombre": "Tanqueray Sevilla",
+    "precio": 24200
+   },
+   {
+    "id": "the-botanist",
+    "categoria": "gin",
+    "nombre": "The Botanist",
+    "precio": 19100
+   },
+   {
+    "id": "yu-gin",
+    "categoria": "gin",
+    "nombre": "Yu Gin",
+    "precio": 27200
+   },
+   {
+    "id": "tonica-britvic",
+    "categoria": "gin",
+    "nombre": "Tónica Britvic",
+    "precio": 5200,
+    "descripcion": "Opcional."
+   },
+   {
+    "id": "ballantines-30-anos",
+    "categoria": "whiskys",
+    "nombre": "Ballantines 30 años",
+    "precio": 145000
+   },
+   {
+    "id": "ballantines-21-anos",
+    "categoria": "whiskys",
+    "nombre": "Ballantines 21 años",
+    "precio": 82600
+   },
+   {
+    "id": "ballantines-17-anos",
+    "categoria": "whiskys",
+    "nombre": "Ballantines 17 años",
+    "precio": 40500
+   },
+   {
+    "id": "ballantines-gold",
+    "categoria": "whiskys",
+    "nombre": "Ballantines Gold",
+    "precio": 28100
+   },
+   {
+    "id": "ballantines-finest",
+    "categoria": "whiskys",
+    "nombre": "Ballantines Finest",
+    "precio": 9000
+   },
+   {
+    "id": "chivas-regal-18-anos",
+    "categoria": "whiskys",
+    "nombre": "Chivas Regal 18 años",
+    "precio": 19300
+   },
+   {
+    "id": "chivas-regal-12-anos",
+    "categoria": "whiskys",
+    "nombre": "Chivas Regal 12 años",
+    "precio": 14100
+   },
+   {
+    "id": "chivas-regal-extra",
+    "categoria": "whiskys",
+    "nombre": "Chivas Regal Extra",
+    "precio": 10000
+   },
+   {
+    "id": "glenfiddich-12-anos",
+    "categoria": "whiskys",
+    "nombre": "Glenfiddich 12 años",
+    "precio": 26200
+   },
+   {
+    "id": "glenfiddich-18-anos",
+    "categoria": "whiskys",
+    "nombre": "Glenfiddich 18 años",
+    "precio": 40100
+   },
+   {
+    "id": "johnnie-walker-red",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Red",
+    "precio": 11300
+   },
+   {
+    "id": "johnnie-walker-black",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Black",
+    "precio": 13400
+   },
+   {
+    "id": "johnnie-walker-double-black",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Double Black",
+    "precio": 18200
+   },
+   {
+    "id": "johnnie-walker-gold",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Gold",
+    "precio": 21000
+   },
+   {
+    "id": "johnnie-walker-platinum",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Platinum",
+    "precio": 23300
+   },
+   {
+    "id": "johnnie-walker-swing",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Swing",
+    "precio": 29100
+   },
+   {
+    "id": "johnnie-walker-blue",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Blue",
+    "precio": 65000
+   },
+   {
+    "id": "johnnie-walker-green",
+    "categoria": "whiskys",
+    "nombre": "Johnnie Walker Green",
+    "precio": 33100
+   },
+   {
+    "id": "grant-s",
+    "categoria": "whiskys",
+    "nombre": "Grant's",
+    "precio": 10100
+   },
+   {
+    "id": "glen-elgin",
+    "categoria": "whiskys",
+    "nombre": "Glen Elgin",
+    "precio": 28700
+   },
+   {
+    "id": "glen-ord",
+    "categoria": "whiskys",
+    "nombre": "Glen Ord",
+    "precio": 32000
+   },
+   {
+    "id": "talisker",
+    "categoria": "whiskys",
+    "nombre": "Talisker",
+    "precio": 35000
+   },
+   {
+    "id": "clynelish",
+    "categoria": "whiskys",
+    "nombre": "Clynelish",
+    "precio": 31200
+   },
+   {
+    "id": "cardhu",
+    "categoria": "whiskys",
+    "nombre": "Cardhu",
+    "precio": 21100
+   },
+   {
+    "id": "tullamore-dew",
+    "categoria": "whiskys",
+    "nombre": "Tullamore Dew",
+    "precio": 14000
+   },
+   {
+    "id": "famous-grouse",
+    "categoria": "whiskys",
+    "nombre": "Famous Grouse",
+    "precio": 9700
+   },
+   {
+    "id": "buchanan-s",
+    "categoria": "whiskys",
+    "nombre": "Buchanan's",
+    "precio": 10300
+   },
+   {
+    "id": "glenlivet",
+    "categoria": "whiskys",
+    "nombre": "Glenlivet",
+    "precio": 16000
+   },
+   {
+    "id": "strathisla",
+    "categoria": "whiskys",
+    "nombre": "Strathisla",
+    "precio": 32200
+   },
+   {
+    "id": "aberlour",
+    "categoria": "whiskys",
+    "nombre": "Aberlour",
+    "precio": 15100
+   },
+   {
+    "id": "longmorn",
+    "categoria": "whiskys",
+    "nombre": "Longmorn",
+    "precio": 18900
+   },
+   {
+    "id": "glenkinchie",
+    "categoria": "whiskys",
+    "nombre": "Glenkinchie",
+    "precio": 20900
+   },
+   {
+    "id": "highland-park",
+    "categoria": "whiskys",
+    "nombre": "Highland Park",
+    "precio": 42000
+   },
+   {
+    "id": "jameson",
+    "categoria": "whiskys",
+    "nombre": "Jameson",
+    "precio": 9900
+   },
+   {
+    "id": "jameson-caskmates",
+    "categoria": "whiskys",
+    "nombre": "Jameson Caskmates",
+    "precio": 16100
+   },
+   {
+    "id": "jameson-black-barrel",
+    "categoria": "whiskys",
+    "nombre": "Jameson Black Barrel",
+    "precio": 16100
+   },
+   {
+    "id": "jack-daniel-s",
+    "categoria": "americanos",
+    "nombre": "Jack Daniel's",
+    "precio": 13200
+   },
+   {
+    "id": "jack-daniel-s-honey",
+    "categoria": "americanos",
+    "nombre": "Jack Daniel's Honey",
+    "precio": 15100
+   },
+   {
+    "id": "jack-daniel-s-apple",
+    "categoria": "americanos",
+    "nombre": "Jack Daniel's Apple",
+    "precio": 15300
+   },
+   {
+    "id": "jack-daniel-s-fire",
+    "categoria": "americanos",
+    "nombre": "Jack Daniel's Fire",
+    "precio": 15600
+   },
+   {
+    "id": "gentleman-jack",
+    "categoria": "americanos",
+    "nombre": "Gentleman Jack",
+    "precio": 24000
+   },
+   {
+    "id": "maker-s-mark",
+    "categoria": "americanos",
+    "nombre": "Maker's Mark",
+    "precio": 17100
+   },
+   {
+    "id": "jim-beam",
+    "categoria": "americanos",
+    "nombre": "Jim Beam",
+    "precio": 13000
+   },
+   {
+    "id": "jim-beam-honey",
+    "categoria": "americanos",
+    "nombre": "Jim Beam Honey",
+    "precio": 14900
+   },
+   {
+    "id": "wild-turkey",
+    "categoria": "americanos",
+    "nombre": "Wild Turkey",
+    "precio": 17800
+   },
+   {
+    "id": "trumpeter-malbec",
+    "categoria": "vinos",
+    "nombre": "Trumpeter Malbec",
+    "precio": 28900
+   },
+   {
+    "id": "trumpeter-chardonnay",
+    "categoria": "vinos",
+    "nombre": "Trumpeter Chardonnay",
+    "precio": 27900
+   },
+   {
+    "id": "rutini-malbec",
+    "categoria": "vinos",
+    "nombre": "Rutini Malbec",
+    "precio": 54100
+   },
+   {
+    "id": "rutini-sauvignon-blanc",
+    "categoria": "vinos",
+    "nombre": "Rutini Sauvignon Blanc",
+    "precio": 36200
+   },
+   {
+    "id": "alamos-malbec-chardonnay",
+    "categoria": "vinos",
+    "nombre": "Álamos Malbec / Chardonnay",
+    "precio": 21100
+   },
+   {
+    "id": "saint-felicien-malbec",
+    "categoria": "vinos",
+    "nombre": "Saint Felicien Malbec",
+    "precio": 28200
+   },
+   {
+    "id": "saint-felicien-chardonnay-roble",
+    "categoria": "vinos",
+    "nombre": "Saint Felicien Chardonnay Roble",
+    "precio": 27000
+   },
+   {
+    "id": "nicasia-malbec",
+    "categoria": "vinos",
+    "nombre": "Nicasia Malbec",
+    "precio": 24800
+   },
+   {
+    "id": "dv-catena-malbec-malbec",
+    "categoria": "vinos",
+    "nombre": "DV Catena Malbec Malbec",
+    "precio": 49700
+   },
+   {
+    "id": "dv-catena-cabernet-malbec",
+    "categoria": "vinos",
+    "nombre": "DV Catena Cabernet Malbec",
+    "precio": 39100
+   },
+   {
+    "id": "cafayate-malbec",
+    "categoria": "vinos",
+    "nombre": "Cafayate Malbec",
+    "precio": 19800
+   },
+   {
+    "id": "cafayate-chardonnay",
+    "categoria": "vinos",
+    "nombre": "Cafayate Chardonnay",
+    "precio": 19800
+   },
+   {
+    "id": "cafayate-cosecha-tardia",
+    "categoria": "vinos",
+    "nombre": "Cafayate Cosecha Tardía",
+    "precio": 19800
+   },
+   {
+    "id": "copa-trumpeter",
+    "categoria": "vinos",
+    "nombre": "Copa Trumpeter",
+    "precio": 9600
+   },
+   {
+    "id": "copa-cafayate",
+    "categoria": "vinos",
+    "nombre": "Copa Cafayate",
+    "precio": 8100
+   },
+   {
+    "id": "copa-alamos",
+    "categoria": "vinos",
+    "nombre": "Copa Álamos",
+    "precio": 8300
+   },
+   {
+    "id": "copa-saint-felicien",
+    "categoria": "vinos",
+    "nombre": "Copa Saint Felicien",
+    "precio": 9900
+   },
+   {
+    "id": "esp-chandon-extra-brut",
+    "categoria": "espumantes",
+    "nombre": "Chandon Extra Brut",
+    "precio": 47900
+   },
+   {
+    "id": "esp-chandon-brut-nature",
+    "categoria": "espumantes",
+    "nombre": "Chandon Brut Nature",
+    "precio": 51300
+   },
+   {
+    "id": "esp-baron-b",
+    "categoria": "espumantes",
+    "nombre": "Baron B",
+    "precio": 65700
+   },
+   {
+    "id": "esp-alamos",
+    "categoria": "espumantes",
+    "nombre": "Álamos",
+    "precio": 46500
+   },
+   {
+    "id": "esp-dv-catena",
+    "categoria": "espumantes",
+    "nombre": "DV Catena",
+    "precio": 68500
+   },
+   {
+    "id": "esp-veuve-clicquot-brut-yellow",
+    "categoria": "espumantes",
+    "nombre": "Veuve Clicquot Brut Yellow",
+    "precio": 695000
+   }
+  ]
+ },
+ "textos": {
+  "tuPedido": "Tu ronda",
+  "verPedido": "Ver la ronda",
+  "agregar": "Sumar a la ronda",
+  "agregado": "Sumado",
+  "carritoVacio": "Tu ronda está vacía.",
+  "carritoVacioSub": "Sumá algo de la carta o tirá un dardo."
+ }
+}

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Irish Town · Pub &amp; Restaurant en Bahía Grande, Nordelta</title>
+<meta property="og:image" content="https://irish-town.vercel.app/img/og.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Irish Town: la hamburguesa en su tabla y el wordmark de la carta">
+<meta property="og:url" content="https://irish-town.vercel.app/">
+<meta property="og:title" content="Irish Town · Pub &amp; Restaurant en Nordelta">
+<meta property="og:description" content="Pintas tiradas, cocina de pub y jam sessions en Bahía Grande, desde 2008.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Irish Town">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://irish-town.vercel.app/img/og.jpg?v=1">
+<meta name="description" content="El pub de la bahía desde 2008: pintas tiradas, cocina de pub, la carta completa, reservas y la agenda de jam sessions en Bahía Grande, Nordelta.">
+<meta name="theme-color" content="#141414">
+<link rel="icon" href="img/isotipo.svg" type="image/svg+xml">
+<script>
+(function(){var d=document.documentElement;
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-intro');})();
+</script>
+<link rel="preload" href="fonts/playfair-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/burger-v.webp" as="image" media="(max-width:767px)">
+<link rel="preload" href="img/burger-h.webp" as="image" media="(min-width:768px)">
+<link rel="stylesheet" href="css/fuentes.css?v=1">
+<link rel="stylesheet" href="kit/kit.css?v=1">
+<link rel="stylesheet" href="css/irish.css?v=14">
+</head>
+<body>
+
+<!-- INTRO: se tira la pinta -->
+<div class="intro" aria-hidden="true">
+  <div class="intro__liq"><i></i><i></i><i></i><i></i><i></i><i></i><span class="intro__espuma"></span></div>
+  <div class="intro__marca"><b>IRISH TOWN</b><small>desde 2008 · Nordelta</small></div>
+</div>
+
+<!-- Navegación: pestañas tricolor (desktop) y posavasos (celu) -->
+<nav class="tabs" aria-label="Secciones">
+  <a href="#carta" class="tabs__v">La carta</a><a href="#pintas" class="tabs__c">Pintas</a><a href="#musica" class="tabs__n">Música</a>
+  <button type="button" class="tabs__r" data-kit-open="reservas">Reservá</button>
+  <button type="button" class="tabs__ronda" data-kit-open="carrito" aria-label="Ver tu ronda"><span>Tu ronda</span> <b class="ronda-n" data-ronda-n>0</b></button>
+</nav>
+<div class="cel-bar">
+  <button class="menu-btn posavaso" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><img src="img/isotipo.svg" alt="" width="34" height="34"><span>MENÚ</span></button>
+</div>
+<div class="menu" id="menu" hidden>
+  <button class="menu__x" type="button" aria-label="Cerrar menú">×</button>
+  <a href="#hero">Inicio</a><a href="#diana">La diana</a><a href="#carta">La carta</a><a href="#pintas">Pintas tiradas</a><a href="#musica">Música</a><a href="#llegar">Cómo llegar</a>
+  <button type="button" class="menu__res" data-kit-open="reservas">Reservá tu mesa</button>
+  <p>Bv. del Mirador 220 · Bahía Grande · todos los días de 12:00 a 00:00 hs</p>
+</div>
+
+<main>
+<!-- ============ HERO: la carta impresa ============ -->
+<section class="ha" id="hero">
+  <div class="ha__cab">
+    <span class="trenza" aria-hidden="true"></span>
+    <h1 class="ha__marca" aria-label="Irish Town"><span>IRISH</span> <span>TOWN</span></h1>
+    <span class="trenza" aria-hidden="true"></span>
+  </div>
+  <div class="ha__barras"><span class="b-verde"></span><p>DRINKS + TASTES + MUSIC</p><span class="b-naranja"></span></div>
+
+  <div class="ha__tabla">
+    <svg class="tabla tabla--h" viewBox="0 0 1000 480" role="img" aria-label="Muerte en Dublín servida en su tabla, con la pinta atrás">
+      <defs><clipPath id="clipTablaH"><path clip-rule="evenodd" d="M176,0 H954 Q1000,0 1000,46 V434 Q1000,480 954,480 H176 Q130,480 130,434 V362 Q130,350 118,350 H60 Q0,350 0,290 V190 Q0,130 60,130 H118 Q130,130 130,118 V46 Q130,0 176,0 Z M60,185 Q80,185 80,205 V275 Q80,295 60,295 Q40,295 40,275 V205 Q40,185 60,185 Z"/></clipPath></defs>
+      <g clip-path="url(#clipTablaH)"><rect width="1000" height="480" fill="#C98B4E"/><image href="img/burger-h.webp" x="130" y="0" width="870" height="480" preserveAspectRatio="xMidYMid slice"/></g>
+      <rect x="176" y="40" width="782" height="400" rx="6" fill="none" stroke="#F3EBDD" stroke-opacity=".75" stroke-width="3"/>
+    </svg>
+    <svg class="tabla tabla--v" viewBox="0 0 1000 1060" role="img" aria-label="Muerte en Dublín servida en su tabla, con la pinta atrás">
+      <defs><clipPath id="clipTablaV"><path clip-rule="evenodd" d="M176,0 H954 Q1000,0 1000,46 V1014 Q1000,1060 954,1060 H176 Q130,1060 130,1014 V638 Q130,626 118,626 H60 Q0,626 0,566 V494 Q0,434 60,434 H118 Q130,434 130,422 V46 Q130,0 176,0 Z M60,480 Q80,480 80,500 V560 Q80,580 60,580 Q40,580 40,560 V500 Q40,480 60,480 Z"/></clipPath></defs>
+      <g clip-path="url(#clipTablaV)"><rect width="1000" height="1060" fill="#C98B4E"/><image href="img/burger-v.webp" x="130" y="0" width="870" height="1060" preserveAspectRatio="xMidYMid slice"/></g>
+      <rect x="178" y="44" width="776" height="972" rx="8" fill="none" stroke="#F3EBDD" stroke-opacity=".75" stroke-width="5"/>
+    </svg>
+    <div class="sello" aria-label="irishtown.com.ar: ahora sí abre">
+      <svg viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="anillo" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
+        <filter id="tinta"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></defs>
+        <g filter="url(#tinta)" fill="none" stroke="#B9531A">
+          <circle cx="100" cy="100" r="96" fill="#FBF6EC" fill-opacity=".9" stroke="none"/><circle cx="100" cy="100" r="94" stroke-width="6"/><circle cx="100" cy="100" r="56" stroke-width="3.5"/>
+          <text font-size="18" font-weight="700" letter-spacing="2.2" fill="#B9531A" stroke="none"><textPath href="#anillo">WWW.IRISHTOWN.COM.AR · AHORA SÍ ·</textPath></text>
+          <text x="100" y="114" text-anchor="middle" font-size="42" fill="#B9531A" stroke="none" class="sello__abre">ABRE</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="ha__pie">
+    <p class="ha__lema">El pub de la bahía. Pintas tiradas, cocina de pub y jam sessions, <span>desde 2008.</span></p>
+    <div class="ctas">
+      <button class="btn-pinta" type="button" data-kit-open="reservas">Reservá tu mesa</button>
+      <a class="btn-trenza" href="#carta">Ver la carta</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WOW: la diana ============ -->
+<section class="diana" id="diana">
+  <div class="diana__cab rv">
+    <p class="kicker">Dardos en la barra desde 2008</p>
+    <h2 class="t-llena">¿No sabés qué pedir? Tirá&nbsp;un&nbsp;dardo.</h2>
+    <p class="diana__sub">Cada número es un plato o una pinta de la carta. <span class="solo-mouse">Apuntá y hacé clic.</span><span class="solo-dedo">Tocá donde quieras clavarlo.</span></p>
+  </div>
+  <div class="tablero rv">
+    <div class="tablero__caja" id="tablero" tabindex="0" role="button" aria-label="Diana: tirá un dardo para descubrir un plato o una pinta">
+      <svg class="tablero__svg" id="dianaSvg" viewBox="-120 -120 240 240" aria-hidden="true"></svg>
+      <svg class="dardo" id="dardo" viewBox="0 0 60 200" aria-hidden="true">
+        <path d="M30,0 L33,46 L27,46 Z" fill="#cfd3d6"/>
+        <rect x="25" y="44" width="10" height="56" rx="3" fill="#C9A24A"/>
+        <rect x="25" y="56" width="10" height="4" fill="#8a6a26"/><rect x="25" y="68" width="10" height="4" fill="#8a6a26"/><rect x="25" y="80" width="10" height="4" fill="#8a6a26"/>
+        <rect x="28" y="100" width="4" height="46" fill="#141414"/>
+        <path d="M30,128 L4,196 L30,180 L56,196 Z" fill="#E5782F"/><path d="M30,128 L30,180" stroke="#1F7A4D" stroke-width="5"/>
+      </svg>
+      <div class="pos" id="pos" aria-live="polite">
+        <div class="pos__in">
+          <p class="pos__tiro" id="posTiro">Simple 20</p>
+          <img class="pos__img" id="posImg" src="img/d-muerte.webp" alt="" width="112" height="112">
+          <h3 class="pos__nom" id="posNom">Muerte en Dublín</h3>
+          <p class="pos__desc" id="posDesc"></p>
+          <p class="pos__precio" id="posPrecio"></p>
+          <div class="pos__btns"><button class="btn-pinta btn-pinta--chico" type="button" id="posSumar">Sumar</button><button class="btn-trenza" type="button" id="posOtra">Tirar otra</button></div>
+        </div>
+      </div>
+      <p class="tablero__invita" id="invita">Tirá</p>
+    </div>
+  </div>
+  <div class="tablero__pie">
+    <button class="btn-trenza" type="button" id="alAzar">Tirar al azar</button>
+    <p class="tablero__cuenta" id="cuenta">0 tiros · 0 sumados</p>
+  </div>
+</section>
+
+<!-- ============ La carta ============ -->
+<section class="carta" id="carta">
+  <div class="carta__cab rv">
+    <span class="carta__cuerda" aria-hidden="true"></span>
+    <div>
+      <p class="kicker kicker--v">La carta de siempre, ahora que se lee</p>
+      <h2 class="t-llena t-llena--osc">La carta</h2>
+      <p class="carta__sub">Toda la carta con sus precios. Sumá lo que quieras a tu ronda y pasá a retirarlo, o mirala en el celu desde el QR de la mesa.</p>
+    </div>
+  </div>
+  <div class="carta__cuerpo">
+    <nav class="carta__indice" aria-label="Secciones de la carta">
+      <div class="carta__paginas" role="tablist" id="cartaPaginas"></div>
+      <div class="carta__secciones" id="cartaSecciones"></div>
+    </nav>
+    <div class="carta__hoja">
+      <header class="carta__hcab" id="cartaHcab"><h3 id="cartaTit">Entradas</h3><p id="cartaBaj"></p></header>
+      <div data-kit="carta" id="kitCarta" class="carta__kit"></div>
+      <div class="carta__pasar">
+        <button type="button" class="carta__flecha" id="cartaAnt"><span aria-hidden="true">←</span> <span id="cartaAntN">Anterior</span></button>
+        <button type="button" class="carta__flecha carta__flecha--sig" id="cartaSig"><span id="cartaSigN">Siguiente</span> <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <figure class="carta__foto" aria-hidden="true"><img id="cartaFoto" src="img/carta/muerte.webp" alt="" width="240" height="240"><figcaption id="cartaFotoN">Pasá el mouse por un plato con ●</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ Pintas tiradas ============ -->
+<section class="pintas" id="pintas">
+  <div class="pintas__cab rv">
+    <p class="kicker">Siete canillas</p>
+    <h2 class="t-llena">Tirate una.</h2>
+    <p class="pintas__sub">Elegí la canilla, pinta o media, y sumala a tu ronda.</p>
+  </div>
+  <div class="pintas__escena rv">
+    <div class="pintas__vaso">
+      <svg viewBox="0 0 400 700" id="vasoSvg" aria-hidden="true">
+        <defs><clipPath id="vasoP"><path d="M20,10 L380,10 L366,120 Q386,150 366,180 L312,680 Q310,700 290,700 L110,700 Q90,700 88,680 L34,180 Q14,150 34,120 Z"/></clipPath>
+        <linearGradient id="birra" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--birra-a)"/><stop offset="1" stop-color="var(--birra-b)"/></linearGradient></defs>
+        <rect class="chorro" x="192" y="-40" width="16" height="0" fill="var(--birra-a)"/>
+        <g clip-path="url(#vasoP)">
+          <rect width="400" height="700" fill="#FBF6EC" fill-opacity=".06"/>
+          <g class="liquido"><rect y="0" width="400" height="700" fill="url(#birra)"/>
+            <path d="M0,0 Q25,-14 50,0 T100,0 T150,0 T200,0 T250,0 T300,0 T350,0 T400,0 V30 H0 Z" fill="#FBF6EC"/></g>
+          <g class="burbujas"><circle cx="150" cy="650" r="4"/><circle cx="210" cy="600" r="3"/><circle cx="260" cy="660" r="5"/><circle cx="180" cy="520" r="3"/><circle cx="235" cy="470" r="4"/></g>
+          <rect x="44" y="10" width="26" height="680" fill="#fff" opacity=".12"/>
+        </g>
+        <path d="M20,10 L380,10 L366,120 Q386,150 366,180 L312,680 Q310,700 290,700 L110,700 Q90,700 88,680 L34,180 Q14,150 34,120 Z" fill="none" stroke="#F3EBDD" stroke-opacity=".7" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="pintas__ficha" aria-live="polite">
+      <p class="pintas__n" id="pNum">Canilla 1</p>
+      <h3 class="pintas__nom" id="pNom">Warsteiner</h3>
+      <p class="pintas__desc" id="pDesc">Elegí una canilla.</p>
+      <div class="pintas__opc" id="pEstilo" role="radiogroup" aria-label="Estilo" hidden></div>
+      <div class="pintas__tam" role="radiogroup" aria-label="Tamaño">
+        <button type="button" role="radio" aria-checked="true" data-tam="pinta">Pinta <b id="pPinta"></b></button>
+        <button type="button" role="radio" aria-checked="false" data-tam="media">Media <b id="pMedia"></b></button>
+      </div>
+      <button class="btn-pinta" type="button" id="pSumar">Sumar a la ronda</button>
+    </div>
+    <div class="pintas__barra">
+      <div class="canillas" id="canillas" role="radiogroup" aria-label="Canillas"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Happy hour ============ -->
+<section class="happy" id="happy">
+  <div class="happy__in rv">
+    <div class="happy__hora">
+      <p class="kicker kicker--o">Happy hour · todos los días</p>
+      <p class="happy__rango">17:00 a 20:00 hs</p>
+      <p class="happy__estado" id="happyEstado">&nbsp;</p>
+    </div>
+    <div class="happy__col">
+      <h3>Tragos 2 x $&nbsp;12.000</h3>
+      <p>Aperol, Negroni, tinto de verano y gin tonic.</p>
+    </div>
+    <div class="happy__col">
+      <h3>Para picar $&nbsp;7.000</h3>
+      <p>Falafel, croquetas de papa y queso, o papas fritas con cheddar y bacon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Música ============ -->
+<section class="musica" id="musica">
+  <figure class="musica__foto rv"><img src="img/botellas-v.webp" alt="La pared de botellas iluminadas de la barra del Irish" width="900" height="1125" loading="lazy" decoding="async"></figure>
+  <div class="musica__txt rv">
+    <p class="kicker">Drinks + Tastes + Music</p>
+    <h2 class="t-llena">Esta semana en el Irish</h2>
+    <ul class="agenda" id="agenda">
+      <li class="agenda__fija"><span class="agenda__dia"><b>Mar</b><small>todas las semanas</small></span><span class="agenda__q"><b>DJ en la barra</b><small>Desde la noche, sin reserva.</small></span></li>
+    </ul>
+    <p class="musica__nota">Las jam sessions son los domingos antes de cada feriado. Los lugares se reservan.</p>
+  </div>
+</section>
+
+<!-- ============ Cómo llegar ============ -->
+<section class="llegar" id="llegar">
+  <div class="llegar__txt rv">
+    <p class="kicker kicker--v">Frente a la bahía</p>
+    <h2 class="t-llena t-llena--osc">Cómo llegar</h2>
+    <p class="llegar__dir">Bv. del Mirador 220<br>Bahía Grande, Nordelta</p>
+    <p class="llegar__estado" id="estadoLocal">&nbsp;</p>
+    <dl class="llegar__horas"><dt>Todos los días</dt><dd>12:00 a 00:00 hs</dd><dt>Happy hour</dt><dd>17:00 a 20:00 hs</dd></dl>
+    <div class="llegar__btns">
+      <a class="btn-pinta" href="https://www.google.com/maps/dir/?api=1&amp;destination=Irishtown%2C%20Bv.%20del%20Mirador%20220%2C%20Nordelta" target="_blank" rel="noopener">Cómo llegar</a>
+      <button class="btn-trenza" type="button" data-kit-open="reservas">Reservá tu mesa</button>
+    </div>
+    <p class="llegar__tel">Reservas: WhatsApp <a href="https://wa.me/5491157514647" target="_blank" rel="noopener">11 5751-4647</a> · Teléfono <a href="tel:+541148718098">4871-8098</a></p>
+  </div>
+  <div class="llegar__mapa rv"><div id="mapa" role="img" aria-label="Mapa de Bahía Grande con Irish Town marcado"></div></div>
+</section>
+</main>
+
+<footer class="pie">
+  <span class="trenza" aria-hidden="true"></span>
+  <img class="pie__logo" src="img/palabra-claro.svg" alt="Irish Town" width="300" height="62" loading="lazy">
+  <p>Pub &amp; Restaurant · Bv. del Mirador 220, Bahía Grande, Nordelta · desde 2008</p>
+  <p><a href="https://www.instagram.com/irishtown.ar/" target="_blank" rel="noopener">@irishtown.ar</a> · <a href="carta/">La carta del QR</a> · <a href="admin/">Panel del dueño</a></p>
+  <p class="credito">Sitio desarrollado por <a href="https://alejomfernandez.com.ar" target="_blank" rel="noopener">Alejo Martín Fernández</a></p>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<script src="vendor/leaflet/leaflet.js" defer></script>
+<script type="module" src="js/irish.js?v=12"></script>
+</body>
+</html>
