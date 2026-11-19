@@ -520,3 +520,26 @@ button{font:inherit;cursor:pointer;touch-action:manipulation}
 }
 @media (min-width:768px){.ha__tabla{width:min(1120px,86vw,calc((100svh - 400px) * 2.083))}}
 @media (min-width:768px){.ha__tabla{width:min(1120px,86vw,calc((100svh - 430px) * 2.083))}}
+
+/* ===== cuarta vuelta del revisor ===== */
+.it__n .nw{white-space:nowrap}
+.pos__desc:empty{display:none}
+.tablero__caja.aviso .tablero__invita{white-space:nowrap;text-align:center}
+@media (min-width:521px){
+  .pos{container-type:inline-size}
+  .pos__in{padding:15% 14% 16%;gap:1.2cqw}
+  .pos__tiro{font-size:max(11px,4cqw)}
+  .pos__img{width:21cqw!important;margin:0}
+  .pos__nom{font-size:8cqw;min-height:0;max-height:2.2em;overflow:hidden;line-height:1.08}
+  .pos__desc{font-size:max(12px,4.1cqw);height:auto;max-height:2.7em}
+  .pos__precio{font-size:6.6cqw;margin:0}
+  .pos .btn-pinta--chico{min-height:max(36px,12cqw);font-size:max(13px,4.6cqw);padding:0 4.6cqw}
+  .pos .btn-trenza{font-size:max(13px,4.6cqw)}
+}
+@media (min-width:768px) and (max-height:760px){.pos{width:66%!important}}
+@media (max-width:767px){
+  .tablero__caja{margin-bottom:64px}
+  .llegar__tel .sep{display:none}
+  .carta__paginas,.carta__secciones,.carta__paginas .sub{mask:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:44px}
+}
+@media (min-width:768px){.ha__tabla{width:min(1060px,86vw,calc((100svh - 430px) * 2.083))}}

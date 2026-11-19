@@ -91,8 +91,13 @@ function precioTxt(p, ctx) {
   if (p.variantes?.length) return p.variantes.filter(v => v.precio != null).map(v => `<span class="nw">${esc(v.nombre)} ${plata(v.precio)}</span>`).join('<span class="sep"> · </span>');
   return esc(ctx.money(p.precio) ?? 'Consultar');
 }
+const nomCola = (p, ctx) => {
+  const w = String(p.nombre).trim().split(' '), ult = w.pop();
+  const extra = (p.foto ? '<span class="punto" title="Tiene foto"></span>' : '') + ((p.etiquetas || []).length ? ' ' + p.etiquetas.map(ctx.etiquetaHTML).join('') : '');
+  return (w.length ? esc(w.join(' ')) + ' ' : '') + `<span class="nw">${esc(ult)}${extra}</span>`;
+};
 const template = (p, ctx) => `
-  <div class="it__body"><h4 class="it__n">${esc(p.nombre)}${p.foto ? '<span class="punto" title="Tiene foto"></span>' : ''} ${(p.etiquetas || []).map(ctx.etiquetaHTML).join('')}</h4>
+  <div class="it__body"><h4 class="it__n">${nomCola(p, ctx)}</h4>
   ${p.descripcion ? `<p class="it__d">${esc(p.descripcion)}</p>` : ''}${p.foto ? '<button type="button" class="it__ver">Ver foto</button>' : ''}</div>
   <div class="it__side"><span class="it__p${p.variantes?.length ? ' it__p--doble' : ''}">${precioTxt(p, ctx)}</span>${ctx.pedible(p) ? `<div data-kit-qty="${esc(p.id)}"></div>` : ''}</div>
   ${p.foto ? `<img class="carta__mini" src="${esc(ctx.asset(p.foto))}" alt="${esc(p.nombre)}" width="240" height="240" loading="lazy">` : ''}`;
@@ -140,6 +145,7 @@ function irA(cat, { scroll = false } = {}) {
   $$('#cartaPaginas .sub button, #cartaSecciones button').forEach(b => b.setAttribute('aria-current', b.dataset.cat === cat));
   $('#cartaSecciones').innerHTML = pag.cats.length > 1 ? pag.cats.map(x => `<button type="button" data-cat="${esc(x)}" aria-current="${x === cat}">${esc(catDe(x).nombre)}</button>`).join('') : '';
   const fp = PRODS.find(p => p.categoria === cat && p.foto); if (fp) fotoCarta(fp);
+  $$('#cartaPaginas [aria-selected="true"], #cartaPaginas .sub [aria-current="true"], #cartaSecciones [aria-current="true"]').forEach(b => { const r = b.parentElement; if (r && r.scrollWidth > r.clientWidth) r.scrollTo({ left: b.offsetLeft - (r.clientWidth - b.offsetWidth) / 2, behavior: reducido ? 'auto' : 'smooth' }); });
   if (scroll) $('#carta').scrollIntoView({ behavior: reducido ? 'auto' : 'smooth', block: 'start' });
 }
 function pintarIndice() {
