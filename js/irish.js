@@ -36,6 +36,9 @@ const ocultarIO = new IntersectionObserver(es => {
   cel.classList.toggle('oculto', enVista.size > 0); d.classList.toggle('sin-pill', enVista.size > 0);
 }, { threshold: 0 });
 ocultarIO.observe($('#hero'));
+let ultY = scrollY, bajando = false;
+addEventListener('scroll', () => { const y = scrollY; if (Math.abs(y - ultY) < 8) return; bajando = y > ultY; ultY = y; cel.classList.toggle('escondido', bajando && y > 200); }, { passive: true });
+new IntersectionObserver(([e]) => d.classList.toggle('carta-en-vista', e.isIntersecting), { threshold: 0 }).observe($('#carta'));
 const menu = $('#menu'), mb = $('.menu-btn');
 const cerrarMenu = () => { if (menu.hidden) return; menu.hidden = true; mb.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; mb.focus(); };
 mb.addEventListener('click', () => { menu.hidden = false; mb.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; $('.menu__x').focus(); });
@@ -85,13 +88,13 @@ const PAGINAS = [
 const COLS2 = new Set(['salsas', 'porrones', 'gin', 'whiskys', 'americanos', 'vinos', 'espumantes', 'sin-alcohol']);
 
 function precioTxt(p, ctx) {
-  if (p.variantes?.length) return p.variantes.filter(v => v.precio != null).map(v => `${v.nombre} ${plata(v.precio)}`).join(' · ');
-  return ctx.money(p.precio) ?? 'Consultar';
+  if (p.variantes?.length) return p.variantes.filter(v => v.precio != null).map(v => `<span class="nw">${esc(v.nombre)} ${plata(v.precio)}</span>`).join(' · ');
+  return esc(ctx.money(p.precio) ?? 'Consultar');
 }
 const template = (p, ctx) => `
   <div class="it__body"><h4 class="it__n">${esc(p.nombre)}${p.foto ? '<span class="punto" title="Tiene foto"></span>' : ''} ${(p.etiquetas || []).map(ctx.etiquetaHTML).join('')}</h4>
   ${p.descripcion ? `<p class="it__d">${esc(p.descripcion)}</p>` : ''}${p.foto ? '<button type="button" class="it__ver">Ver foto</button>' : ''}</div>
-  <div class="it__side"><span class="it__p">${esc(precioTxt(p, ctx))}</span>${ctx.pedible(p) ? `<div data-kit-qty="${esc(p.id)}"></div>` : ''}</div>
+  <div class="it__side"><span class="it__p${p.variantes?.length ? ' it__p--doble' : ''}">${precioTxt(p, ctx)}</span>${ctx.pedible(p) ? `<div data-kit-qty="${esc(p.id)}"></div>` : ''}</div>
   ${p.foto ? `<img class="carta__mini" src="${esc(ctx.asset(p.foto))}" alt="${esc(p.nombre)}" width="240" height="240" loading="lazy">` : ''}`;
 
 let kit = null;
@@ -223,7 +226,7 @@ function resultado(x, y) {
   return { tipo, item: ITEMS[(n - 1) % ITEMS.length], seg: segs[i] };
 }
 function tirar(px, py) {
-  if (ocupado || !ITEMS.length) return; ocupado = true; cerrarPos(); caja.classList.add('jugado');
+  if (ocupado || !ITEMS.length) return; ocupado = true; cerrarPos(); caja.classList.add('jugado'); $('#toast').classList.remove('on'); dardo.classList.remove('bajo');
   const b = caja.getBoundingClientRect(), s = b.width / 240, jit = 7 * s;
   const tx = px + (Math.random() - .5) * jit * 2, ty = py + (Math.random() - .5) * jit * 2;
   const res = resultado((tx - b.left) / s - 120, (ty - b.top) / s - 120);
@@ -236,13 +239,15 @@ function tirar(px, py) {
     tiros++; cuenta();
     $$('.tablero__svg .hit').forEach(e => e.classList.remove('hit')); res.seg?.classList.add('hit');
     setTimeout(() => {
-      if (!res.item) { toast('Afuera. ¡Tirá otra!'); ocupado = false; return; }
+      if (!res.item) { toast('Afuera. ¡Tirá otra!'); setTimeout(() => { if (!ocupado) dardo.style.opacity = 0; }, 700); ocupado = false; return; }
       item = res.item;
       $('#posTiro').textContent = res.tipo;
       $('#posImg').src = `img/d-${item.f}.webp`; $('#posImg').alt = item.n;
       $('#posNom').textContent = item.n; $('#posDesc').textContent = item.d;
       $('#posPrecio').textContent = item.p != null ? plata(item.p) + item.sufijo : 'Consultar';
       $('#posSumar').disabled = !item.pedible;
+      const pr = pos.querySelector('.pos__in').getBoundingClientRect(), cx = pr.left + pr.width / 2, cy = pr.top + pr.height / 2;
+      dardo.classList.toggle('bajo', Math.hypot(tx - cx, ty - cy) < pr.width / 2 + 6);
       pos.classList.add('on'); ocupado = false;
     }, reducido ? 0 : 420);
   };
@@ -319,12 +324,14 @@ function pintarAfiche(ev) {
   const f = new Date(ev.fecha + 'T12:00:00');
   $('#afDia').textContent = DIAS_L[f.getDay()]; $('#afFecha').textContent = `${f.getDate()}/${f.getMonth() + 1}`;
   $('#afNom').textContent = ev.nombre; $('#afHora').textContent = `${ev.hora} hs · Bv. del Mirador 220`;
+  const b = $('#afBtn'); b.hidden = !ev.reserva; b.dataset.ev = ev.id;
 }
+$('#afBtn').addEventListener('click', e => kit?.reservas?.abrir({ evento: e.currentTarget.dataset.ev }));
 async function pintarAgenda(lista) {
   pintarAfiche((lista || [])[0]);
   const ul = $('#agenda'), fija = ul.querySelector('.agenda__fija');
   ul.querySelectorAll('.agenda__ev').forEach(x => x.remove());
-  for (const ev of (lista || []).slice(0, 4)) {
+  for (const ev of (lista || []).slice(1, 5)) {
     const f = new Date(ev.fecha + 'T12:00:00'), dd = `${f.getDate()}/${f.getMonth() + 1}`;
     let quedan = '';
     if (ev.reserva && kit?.reservas?.turnos) { try { const ts = await kit.reservas.turnos(ev.fecha, 1); const t = ts.find(x => x.hora === ev.hora) || ts[0]; if (t && t.libres != null) quedan = t.libres > 0 ? `Quedan ${t.libres} lugares` : 'Completo'; } catch (_) {} }

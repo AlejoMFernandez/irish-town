@@ -28,7 +28,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
 <link rel="preload" href="img/burger-h.webp" as="image" media="(min-width:768px)">
 <link rel="stylesheet" href="css/fuentes.css?v=1">
 <link rel="stylesheet" href="kit/kit.css?v=1">
-<link rel="stylesheet" href="css/irish.css?v=17">
+<link rel="stylesheet" href="css/irish.css?v=19">
 </head>
 <body>
 
@@ -229,6 +229,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
     <p class="afiche__fecha" id="afFecha">22/11</p>
     <p class="afiche__nom" id="afNom">Jam session</p>
     <p class="afiche__hora" id="afHora">21:00 hs · Bv. del Mirador 220</p>
+    <button type="button" class="btn-pinta afiche__btn" id="afBtn" hidden>Reservá tu lugar</button>
     <img class="afiche__iso" src="img/isotipo-claro.svg" alt="" width="64" height="63">
     <span class="trenza" aria-hidden="true"></span>
   </div>
@@ -254,7 +255,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
       <a class="btn-pinta" href="https://www.google.com/maps/dir/?api=1&amp;destination=Irishtown%2C%20Bv.%20del%20Mirador%20220%2C%20Nordelta" target="_blank" rel="noopener">Cómo llegar</a>
       <button class="btn-trenza" type="button" data-kit-open="reservas">Reservá tu mesa</button>
     </div>
-    <p class="llegar__tel">Reservas: <span class="nw">WhatsApp <a href="https://wa.me/5491157514647" target="_blank" rel="noopener">11 5751-4647</a></span> · <span class="nw">Teléfono <a href="tel:+541148718098">4871-8098</a></span></p>
+    <p class="llegar__tel">Reservas: <span class="nw">WhatsApp <a href="https://wa.me/5491157514647" target="_blank" rel="noopener">11 5751-4647</a> ·</span> <span class="nw">Teléfono <a href="tel:+541148718098">4871-8098</a></span></p>
   </div>
   <div class="llegar__mapa rv"><div id="mapa" role="img" aria-label="Mapa de Bahía Grande con Irish Town marcado"></div></div>
 </section>
@@ -271,6 +272,6 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
 
 <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
 <script src="vendor/leaflet/leaflet.js" defer></script>
-<script type="module" src="js/irish.js?v=13"></script>
+<script type="module" src="js/irish.js?v=15"></script>
 </body>
 </html>
