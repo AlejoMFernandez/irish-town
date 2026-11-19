@@ -35,12 +35,12 @@ const ocultarIO = new IntersectionObserver(es => {
   es.forEach(e => e.isIntersecting ? enVista.add(e.target) : enVista.delete(e.target));
   cel.classList.toggle('oculto', enVista.size > 0); d.classList.toggle('sin-pill', enVista.size > 0);
 }, { threshold: 0 });
-$$('.ha .ctas, #tablero, .pintas__ficha').forEach(e => ocultarIO.observe(e));
+ocultarIO.observe($('#hero'));
 const menu = $('#menu'), mb = $('.menu-btn');
 const cerrarMenu = () => { if (menu.hidden) return; menu.hidden = true; mb.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; mb.focus(); };
 mb.addEventListener('click', () => { menu.hidden = false; mb.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; $('.menu__x').focus(); });
 $('.menu__x').addEventListener('click', cerrarMenu);
-menu.addEventListener('click', e => { if (e.target.closest('a, .menu__res')) cerrarMenu(); });
+menu.addEventListener('click', e => { if (e.target.closest('a, .menu__res, .menu__ronda')) cerrarMenu(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') { cerrarMenu(); cerrarPos(); } });
 
 /* ---------- reloj del local (zona Buenos Aires) ---------- */
@@ -90,8 +90,8 @@ function precioTxt(p, ctx) {
 }
 const template = (p, ctx) => `
   <div class="it__body"><h4 class="it__n">${esc(p.nombre)}${p.foto ? '<span class="punto" title="Tiene foto"></span>' : ''} ${(p.etiquetas || []).map(ctx.etiquetaHTML).join('')}</h4>
-  ${p.descripcion ? `<p class="it__d">${esc(p.descripcion)}</p>` : ''}</div>
-  <div class="it__side">${p.foto ? '<button type="button" class="it__ver">Ver foto</button>' : ''}<span class="it__p">${esc(precioTxt(p, ctx))}</span>${ctx.pedible(p) ? `<div data-kit-qty="${esc(p.id)}"></div>` : ''}</div>
+  ${p.descripcion ? `<p class="it__d">${esc(p.descripcion)}</p>` : ''}${p.foto ? '<button type="button" class="it__ver">Ver foto</button>' : ''}</div>
+  <div class="it__side"><span class="it__p">${esc(precioTxt(p, ctx))}</span>${ctx.pedible(p) ? `<div data-kit-qty="${esc(p.id)}"></div>` : ''}</div>
   ${p.foto ? `<img class="carta__mini" src="${esc(ctx.asset(p.foto))}" alt="${esc(p.nombre)}" width="240" height="240" loading="lazy">` : ''}`;
 
 let kit = null;
@@ -100,6 +100,7 @@ let kit = null;
 const pintarRonda = (lineas = kit?.carrito?.lineas || []) => {
   const n = lineas.reduce((a, l) => a + (l.cant || 0), 0);
   $$('[data-ronda-n]').forEach(e => e.textContent = n);
+  const pb = $('.posavaso__n'); if (pb) pb.hidden = n === 0;
   d.classList.toggle('con-ronda', n > 0);
 };
 document.addEventListener('kit:carrito', e => pintarRonda(e.detail.lineas));
@@ -247,7 +248,7 @@ function tirar(px, py) {
   };
 }
 const alAzar = () => { const b = caja.getBoundingClientRect(), a = Math.random() * Math.PI * 2, r = Math.random() * .4 * b.width; tirar(b.left + b.width / 2 + r * Math.sin(a), b.top + b.height / 2 - r * Math.cos(a)); };
-caja.addEventListener('click', e => { if (e.target.closest('.pos.on')) return; tirar(e.clientX, e.clientY); });
+caja.addEventListener('click', e => { if (e.target.closest('.pos.on .pos__in')) return; tirar(e.clientX, e.clientY); });
 caja.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.pos')) { e.preventDefault(); alAzar(); } });
 $('#alAzar').addEventListener('click', alAzar);
 $('#posOtra').addEventListener('click', e => { e.stopPropagation(); cerrarPos(); setTimeout(alAzar, 250); });
@@ -312,7 +313,15 @@ $('#pSumar').addEventListener('click', e => {
 
 /* ---------- agenda de música ---------- */
 const DIAS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+const DIAS_L = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+function pintarAfiche(ev) {
+  if (!ev) { $('#afDia').textContent = 'Domingos'; $('#afFecha').textContent = 'pre-feriado'; $('#afNom').textContent = 'Jam session'; $('#afHora').textContent = 'Bv. del Mirador 220'; return; }
+  const f = new Date(ev.fecha + 'T12:00:00');
+  $('#afDia').textContent = DIAS_L[f.getDay()]; $('#afFecha').textContent = `${f.getDate()}/${f.getMonth() + 1}`;
+  $('#afNom').textContent = ev.nombre; $('#afHora').textContent = `${ev.hora} hs · Bv. del Mirador 220`;
+}
 async function pintarAgenda(lista) {
+  pintarAfiche((lista || [])[0]);
   const ul = $('#agenda'), fija = ul.querySelector('.agenda__fija');
   ul.querySelectorAll('.agenda__ev').forEach(x => x.remove());
   for (const ev of (lista || []).slice(0, 4)) {
@@ -334,7 +343,7 @@ kit = await initKit({
   config: 'cliente.json',
   carta: { template, itemClass: 'it' },
   carrito: { label: 'Tu ronda', icono: '<svg viewBox="0 0 24 24"><path d="M6 4h12l-1.6 15.2a2 2 0 0 1-2 1.8H9.6a2 2 0 0 1-2-1.8Z"/><path d="M6.6 9.5h10.8"/></svg>' },
-  badge: true,
+  badge: !celu,
   imagenes: { lqip: 'img/lqip.json' },
 });
 window.kit = kit;

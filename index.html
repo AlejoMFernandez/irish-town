@@ -28,7 +28,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
 <link rel="preload" href="img/burger-h.webp" as="image" media="(min-width:768px)">
 <link rel="stylesheet" href="css/fuentes.css?v=1">
 <link rel="stylesheet" href="kit/kit.css?v=1">
-<link rel="stylesheet" href="css/irish.css?v=14">
+<link rel="stylesheet" href="css/irish.css?v=17">
 </head>
 <body>
 
@@ -45,12 +45,13 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
   <button type="button" class="tabs__ronda" data-kit-open="carrito" aria-label="Ver tu ronda"><span>Tu ronda</span> <b class="ronda-n" data-ronda-n>0</b></button>
 </nav>
 <div class="cel-bar">
-  <button class="menu-btn posavaso" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><img src="img/isotipo.svg" alt="" width="34" height="34"><span>MENÚ</span></button>
+  <button class="menu-btn posavaso" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><img src="img/isotipo.svg" alt="" width="34" height="34"><span>MENÚ</span><b class="posavaso__n ronda-n" data-ronda-n hidden>0</b></button>
 </div>
 <div class="menu" id="menu" hidden>
   <button class="menu__x" type="button" aria-label="Cerrar menú">×</button>
   <a href="#hero">Inicio</a><a href="#diana">La diana</a><a href="#carta">La carta</a><a href="#pintas">Pintas tiradas</a><a href="#musica">Música</a><a href="#llegar">Cómo llegar</a>
-  <button type="button" class="menu__res" data-kit-open="reservas">Reservá tu mesa</button>
+  <div class="menu__btns"><button type="button" class="menu__res" data-kit-open="reservas">Reservá tu mesa</button><button type="button" class="menu__ronda" data-kit-open="carrito">Tu ronda <b class="ronda-n" data-ronda-n>0</b></button></div>
+  <a class="menu__panel" href="admin/" target="_blank" rel="noopener">Probá el panel del dueño →</a>
   <p>Bv. del Mirador 220 · Bahía Grande · todos los días de 12:00 a 00:00 hs</p>
 </div>
 
@@ -117,7 +118,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
       <div class="pos" id="pos" aria-live="polite">
         <div class="pos__in">
           <p class="pos__tiro" id="posTiro">Simple 20</p>
-          <img class="pos__img" id="posImg" src="img/d-muerte.webp" alt="" width="112" height="112">
+          <img class="pos__img" id="posImg" src="img/d-muerte.webp" alt="" width="112" height="112" loading="lazy">
           <h3 class="pos__nom" id="posNom">Muerte en Dublín</h3>
           <p class="pos__desc" id="posDesc"></p>
           <p class="pos__precio" id="posPrecio"></p>
@@ -205,7 +206,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
   <div class="happy__in rv">
     <div class="happy__hora">
       <p class="kicker kicker--o">Happy hour · todos los días</p>
-      <p class="happy__rango">17:00 a 20:00 hs</p>
+      <p class="happy__rango"><span class="nw">17:00 a</span> <span class="nw">20:00 hs</span></p>
       <p class="happy__estado" id="happyEstado">&nbsp;</p>
     </div>
     <div class="happy__col">
@@ -221,10 +222,19 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
 
 <!-- ============ Música ============ -->
 <section class="musica" id="musica">
-  <figure class="musica__foto rv"><img src="img/botellas-v.webp" alt="La pared de botellas iluminadas de la barra del Irish" width="900" height="1125" loading="lazy" decoding="async"></figure>
+  <div class="afiche rv" id="afiche" aria-label="Afiche de la próxima jam session">
+    <span class="trenza" aria-hidden="true"></span>
+    <p class="afiche__k">Irish Town presenta</p>
+    <p class="afiche__dia" id="afDia">Domingo</p>
+    <p class="afiche__fecha" id="afFecha">22/11</p>
+    <p class="afiche__nom" id="afNom">Jam session</p>
+    <p class="afiche__hora" id="afHora">21:00 hs · Bv. del Mirador 220</p>
+    <img class="afiche__iso" src="img/isotipo-claro.svg" alt="" width="64" height="63">
+    <span class="trenza" aria-hidden="true"></span>
+  </div>
   <div class="musica__txt rv">
     <p class="kicker">Drinks + Tastes + Music</p>
-    <h2 class="t-llena">Esta semana en el Irish</h2>
+    <h2 class="t-llena">La música del Irish</h2>
     <ul class="agenda" id="agenda">
       <li class="agenda__fija"><span class="agenda__dia"><b>Mar</b><small>todas las semanas</small></span><span class="agenda__q"><b>DJ en la barra</b><small>Desde la noche, sin reserva.</small></span></li>
     </ul>
@@ -244,7 +254,7 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
       <a class="btn-pinta" href="https://www.google.com/maps/dir/?api=1&amp;destination=Irishtown%2C%20Bv.%20del%20Mirador%20220%2C%20Nordelta" target="_blank" rel="noopener">Cómo llegar</a>
       <button class="btn-trenza" type="button" data-kit-open="reservas">Reservá tu mesa</button>
     </div>
-    <p class="llegar__tel">Reservas: WhatsApp <a href="https://wa.me/5491157514647" target="_blank" rel="noopener">11 5751-4647</a> · Teléfono <a href="tel:+541148718098">4871-8098</a></p>
+    <p class="llegar__tel">Reservas: <span class="nw">WhatsApp <a href="https://wa.me/5491157514647" target="_blank" rel="noopener">11 5751-4647</a></span> · <span class="nw">Teléfono <a href="tel:+541148718098">4871-8098</a></span></p>
   </div>
   <div class="llegar__mapa rv"><div id="mapa" role="img" aria-label="Mapa de Bahía Grande con Irish Town marcado"></div></div>
 </section>
@@ -261,6 +271,6 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('con-
 
 <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
 <script src="vendor/leaflet/leaflet.js" defer></script>
-<script type="module" src="js/irish.js?v=12"></script>
+<script type="module" src="js/irish.js?v=13"></script>
 </body>
 </html>
