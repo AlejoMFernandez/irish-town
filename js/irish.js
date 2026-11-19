@@ -88,7 +88,7 @@ const PAGINAS = [
 const COLS2 = new Set(['salsas', 'porrones', 'gin', 'whiskys', 'americanos', 'vinos', 'espumantes', 'sin-alcohol']);
 
 function precioTxt(p, ctx) {
-  if (p.variantes?.length) return p.variantes.filter(v => v.precio != null).map(v => `<span class="nw">${esc(v.nombre)} ${plata(v.precio)}</span>`).join(' · ');
+  if (p.variantes?.length) return p.variantes.filter(v => v.precio != null).map(v => `<span class="nw">${esc(v.nombre)} ${plata(v.precio)}</span>`).join('<span class="sep"> · </span>');
   return esc(ctx.money(p.precio) ?? 'Consultar');
 }
 const template = (p, ctx) => `
@@ -215,6 +215,8 @@ let bullE, bull;
 let tiros = 0, sumados = 0, ocupado = false, item = null;
 const cuenta = () => $('#cuenta').textContent = `${tiros} ${tiros === 1 ? 'tiro' : 'tiros'} · ${sumados} ${sumados === 1 ? 'sumado' : 'sumados'}`;
 function cerrarPos() { pos.classList.remove('on'); }
+const invita = $('#invita');
+function avisoDiana(t) { invita.textContent = t; caja.classList.add('aviso'); clearTimeout(avisoDiana.t); avisoDiana.t = setTimeout(() => caja.classList.remove('aviso'), 1600); }
 function resultado(x, y) {
   const r = Math.hypot(x, y); let a = Math.atan2(x, -y); if (a < 0) a += 2 * Math.PI;
   const i = Math.round(a / (Math.PI / 10)) % 20, n = ORDEN[i];
@@ -226,7 +228,7 @@ function resultado(x, y) {
   return { tipo, item: ITEMS[(n - 1) % ITEMS.length], seg: segs[i] };
 }
 function tirar(px, py) {
-  if (ocupado || !ITEMS.length) return; ocupado = true; cerrarPos(); caja.classList.add('jugado'); $('#toast').classList.remove('on'); dardo.classList.remove('bajo');
+  if (ocupado || !ITEMS.length) return; ocupado = true; cerrarPos(); caja.classList.add('jugado'); caja.classList.remove('aviso'); dardo.classList.remove('bajo');
   const b = caja.getBoundingClientRect(), s = b.width / 240, jit = 7 * s;
   const tx = px + (Math.random() - .5) * jit * 2, ty = py + (Math.random() - .5) * jit * 2;
   const res = resultado((tx - b.left) / s - 120, (ty - b.top) / s - 120);
@@ -239,15 +241,19 @@ function tirar(px, py) {
     tiros++; cuenta();
     $$('.tablero__svg .hit').forEach(e => e.classList.remove('hit')); res.seg?.classList.add('hit');
     setTimeout(() => {
-      if (!res.item) { toast('Afuera. ¡Tirá otra!'); setTimeout(() => { if (!ocupado) dardo.style.opacity = 0; }, 700); ocupado = false; return; }
+      if (!res.item) { avisoDiana('Afuera. ¡Otra!'); setTimeout(() => { if (!ocupado) dardo.style.opacity = 0; }, 700); ocupado = false; return; }
       item = res.item;
       $('#posTiro').textContent = res.tipo;
       $('#posImg').src = `img/d-${item.f}.webp`; $('#posImg').alt = item.n;
       $('#posNom').textContent = item.n; $('#posDesc').textContent = item.d;
       $('#posPrecio').textContent = item.p != null ? plata(item.p) + item.sufijo : 'Consultar';
       $('#posSumar').disabled = !item.pedible;
-      const pr = pos.querySelector('.pos__in').getBoundingClientRect(), cx = pr.left + pr.width / 2, cy = pr.top + pr.height / 2;
-      dardo.classList.toggle('bajo', Math.hypot(tx - cx, ty - cy) < pr.width / 2 + 6);
+      const B = caja.getBoundingClientRect(), R0 = B.width / 2, rp = pos.offsetWidth / 2, maxO = Math.max(0, R0 - rp - 6);
+      let vx = (tx - B.left) - R0, vy = (ty - B.top) - R0; const L = Math.hypot(vx, vy);
+      if (L < 4) { vx = 0; vy = -1; } else { vx /= L; vy /= L; }
+      const ox = -vx * maxO, oy = -vy * maxO;
+      pos.style.setProperty('--ox', ox.toFixed(1) + 'px'); pos.style.setProperty('--oy', oy.toFixed(1) + 'px');
+      dardo.classList.toggle('bajo', Math.hypot((tx - B.left) - (R0 + ox), (ty - B.top) - (R0 + oy)) < rp + 4);
       pos.classList.add('on'); ocupado = false;
     }, reducido ? 0 : 420);
   };
